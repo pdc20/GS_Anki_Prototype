@@ -1,7 +1,7 @@
 import sys
 
 import pandas as pd
-from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QGroupBox, QGridLayout, QPushButton, QApplication, QDialog, \
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QGroupBox, QGridLayout, QPushButton, QApplication, \
     QWidget, QLineEdit, QLabel, QFileDialog
 
 
@@ -120,7 +120,12 @@ class MainWindow(QMainWindow):
             words = pd.read_csv(wordsFilePath)
             sentences = pd.read_csv(sentencesFilePath)
             out = words.join(sentences.set_index("ID"), on="SentenceID", validate="m:1")
-            out.to_csv(outputFilePath)
+            del out["SentenceID"]
+            mask = out["Kanji"].isnull()
+            out.loc[mask, "Kanji"] = out["Hiragana"]
+            out.insert(1, "Kanji-F", out["Kanji"])
+
+            out.to_csv(outputFilePath, header=False, index=False)
             self.statusText.setText("Successfully joined files.")
         except:
             self.statusText.setText("<font color = red>Error when saving file.</font>")
