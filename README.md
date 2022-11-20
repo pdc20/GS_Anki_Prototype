@@ -16,10 +16,12 @@ ID, Sentence, Translation (English)
 ```
 Then the program will output the following CSV file:
 ```
-Kanji, Hiragana, Meaning, Sentence, Translation (English)
-入り口, いりぐち, Entrance, 私の家は入り口がありません。, My house doesn't have an entrance.
-ある, ある, To exist, 私の家は入り口がありません。, My house doesn't have an entrance.
+Kanji-F, Kanji, Hiragana, Meaning, Sentence, Translation (English)
+入り口, 入り口, いりぐち, Entrance, 私の家は入り口がありません。, My house doesn't have an entrance.
+ある, ある, ある, To exist, 私の家は入り口がありません。, My house doesn't have an entrance.
 ```
 This saves you the hassle of copy-pasting the same sentences and their translations over multiple word entries. You only need to write the ID of the sentence you want to reference. 
 
 Notice how word entries with no kanji are automatically filled in with the corresponding Hiragana. This saves you the need to copy paste or repeat typing the word in.
+
+Finally, we copy the Kanji column so you can add furigana to the cells in the Kanji-F column.
