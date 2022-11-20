@@ -1,5 +1,5 @@
 # Google Sheets to Anki Prototype
-Yeah I know the title is generic but this is just a prototype. I'll deal with that later.
+Yeah I know the title is generic but this is just a prototype. I'll deal with it later.
 
 This is a custom app that lets you join two CSV files where the first has a column that has IDs of rows in the second file (analogous to foreign keys in database entities).
 
